@@ -69,8 +69,6 @@ LIMIT 10;
 SELECT u.url, COUNT(distinct t.tweet_id) as nums
 FROM url_used u
 INNER JOIN tweets t ON t.tweet_id = u.tweet_id
-INNER JOIN TwitterUser j on t.posting_user = j.screen_name
-WHERE j.sub_category = 'gop' AND (t.month_posted = 1 OR t.month_posted = 2 or t.month_posted = 3) AND t.year_posted = 2016
 GROUP BY u.url
 ORDER BY nums DESC LIMIT 10
 
